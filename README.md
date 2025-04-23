@@ -2,6 +2,7 @@
 Welcome to **Deepan's Multimodal RAG Chatbot**, a lightweight, efficient Retrieval-Augmented Generation (RAG) chatbot that supports complex PDF containing Text, Tables, and Images.
 This app uses the power of Google Gemini 1.5 Pro, OpenAI CLIP embeddings, and FAISS for multimodal document search and generation.
 
+![banner](https://img.shields.io/badge/Powered%20By-Gemini%201.5%20Pro%20%2B%20CLIP-brightgreen)  
 🔗 Hosted on GitHub: [DeepK-art/Multimodel-RAG](https://github.com/DeepK-art/Multimodel-RAG.git)
 
 ---
