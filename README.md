@@ -39,6 +39,16 @@ The following table outlines the components and corresponding libraries/tools us
 
 ## 📁 File Structure
 
+```bash
+multimodal-rag/
+├── data/                    # 📂 Data folder for PDF processing
+│   ├── PDF_Generator/       # 🛠️ Scripts or data for generating PDFs
+│   └── PDF_Modifier/        # 🛠️ Scripts or data for modifying PDFs
+├── RAG_final.py             # 🎯 Main Streamlit app to run the RAG pipeline
+├── requirements.txt         # 📦 List of required Python packages
+├── README.md                # 📘 Project overview and usage instructions
+└── .env                     # 🔐 Environment file with Gemini API key (excluded from Git)
+```
 
 ## 🧪 How It Works
 1. **Document Upload**
