@@ -90,7 +90,8 @@ graph TD
     B1 --> C[Prepare Chunks]
     B4 --> C
     B5 --> C
-    C -->|Text, Image Summaries, Table JSON| D[Generate Embeddings: CLIP Model]
+    C --> X([Text, Image Summaries, Table JSON])
+    X --> D[Generate Embeddings: CLIP Model]
     D --> E[Build FAISS Vector Index: Store Normalized Embeddings]
     
     F[User Inputs a Question] --> G[Generate Query Embedding: CLIP Model]
