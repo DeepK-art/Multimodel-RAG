@@ -1,83 +1,175 @@
-# 📚 Multimodal PDF RAG
+### 📚 Multimodal RAG Chatbot 🔍 🤖 — Powered by Gemini 1.5 + CLIP
+Welcome to Deepan's Multimodal RAG Chatbot, a lightweight, efficient Retrieval-Augmented Generation (RAG) chatbot that supports PDF Text, Tables, and Images.
+This app uses the power of Google Gemini 1.5 Pro, OpenAI CLIP embeddings, and FAISS for multimodal document search and generation.
 
-A Streamlit app for **Multimodal Retrieval-Augmented Generation (RAG)** that extracts and reasons over **Text**, **Tables**, and **Images** from PDFs.  
-It combines **CLIP**, **Google Gemini**, and **FAISS** for powerful multimodal retrieval and question answering.
 
----
+🔗 Hosted on GitHub: Deeps72-ux/multimodal-rag
 
-## 🚀 Features
+### 🚀 Features
+📄 Upload and process PDFs containing text, tables, and images
 
-- Extract **text** from PDFs using `pdfplumber`
-- Extract **tables** as structured **JSON** using `fitz` + `Google Gemini`
-- Extract and **caption images** from PDFs using `Google Gemini`
-- Build a **FAISS** vector database with CLIP embeddings
-- Perform **semantic search** across all extracted content
-- Generate detailed answers using **Google Gemini Pro 1.5**
-- Streamlit **UI** for easy interaction and exploration
+📊 Extract tables as structured JSON using Gemini
 
----
+🖼️ Extract and caption images via Gemini multimodal reasoning
 
-## 🛠️ Tech Stack
+🧠 Embed all content (text + captions + table summaries) using CLIP embeddings
 
-- [Streamlit](https://streamlit.io/)
-- [Hugging Face Transformers (CLIP)](https://huggingface.co/openai/clip-vit-base-patch32)
-- [Google Generative AI (Gemini 1.5 Pro)](https://ai.google.dev/)
-- [FAISS](https://github.com/facebookresearch/faiss)
-- [pdfplumber](https://github.com/jsvine/pdfplumber)
-- [PyMuPDF (fitz)](https://pymupdf.readthedocs.io/en/latest/)
-- [nltk](https://www.nltk.org/)
+📚 FAISS vector store for fast semantic search
 
----
+💬 Interactive Streamlit chat interface with chat history memory
 
-## 📥 Setup Instructions
+🤖 Contextual responses generated using Gemini 1.5 Pro
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/multimodal-pdf-rag.git
-   cd multimodal-pdf-rag
+### 🧰 Tech Stack
 
-2. **Install dependencies:**
+Component	Library/Tool
+User Interface	Streamlit
+Text Extraction	pdfplumber
+Table Extraction	PyMuPDF (fitz) + Gemini
+Image Handling	PyMuPDF + Gemini
+Embeddings	OpenAI CLIP model (clip-vit-base-patch32)
+Vector database	FAISS
+LLM	Google Gemini API (1.5 Pro)
+API Secrets	dotenv (.env file for config)
+For text cleaning and chunking: nltk library was used.
 
-```bash
+### 📁 File Structure
+<pre> multimodal-rag/ ├── app.py # 🎯 Main Streamlit app to run the Multimodal RAG pipeline ├── requirements.txt # 📦 List of required Python packages ├── .env # 🔐 Environment file containing the Gemini API key (excluded from Git) ├── README.md # 📘 Project overview and usage instructions └── modules/ # 🏗️ Modular components used to build the multimodal RAG model ├── pdf_text_extractor.py ├── table_extractor.py ├── image_extractor.py ├── vector_db.py └── chatbot.py </pre>
+🧪 How It Works
+Document Upload
+Upload .pdf documents containing text, tables, and images.
+
+Multimodal Extraction
+
+Text extracted via pdfplumber
+
+Tables extracted via PyMuPDF, then converted to JSON using Gemini
+
+Images extracted and captioned via Gemini
+
+Embedding
+All extracted content is embedded using OpenAI CLIP to create a unified multimodal representation.
+
+FAISS Indexing
+Embeddings are indexed using faiss.IndexFlatL2 for fast retrieval.
+
+Retrieval and Generation
+
+For each user query, the Top-3 relevant content chunks are retrieved from the FAISS DB.
+
+The query + retrieved context are sent to Google Gemini 1.5 Pro.
+
+Gemini generates a coherent final answer based on the context.
+
+<pre> ┌──────────────┐ │ PDF Content │ └──────┬───────┘ ↓ ┌────────────┬──────────────┬─────────────┐ │ Text Chunk │ Table JSON │ Image Captions │ └────────────┴──────────────┴─────────────┘ ↓ ┌───────────────┐ │ CLIP Encoder │ └──────┬────────┘ ↓ ┌──────────────┐ │ FAISS DB │◄───── User Query └─────┬────────┘ │ ↓ Top-k Matches │ ┌──────────────────────────┐ │ │ Prompt Generator │◄┘ │ (Gemini 1.5 Pro) │ └────────────┬──────────────┘ ↓ ✨ Final Answer ✨ </pre>
+📝 Setup Instructions
+1. Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/Deeps72-ux/multimodal-rag.git
+cd multimodal-rag
+2. Create and Activate a Virtual Environment (Optional)
+bash
+Copy
+Edit
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+3. Install Requirements
+bash
+Copy
+Edit
 pip install -r requirements.txt
-```
-
-3. **Run the app:**
-
-```bash
+4. Run the Application
+bash
+Copy
+Edit
 streamlit run app.py
-```
+🔐 Environment Variables
+Create a .env file in the root of your project:
 
-### 🚀 Usage
+bash
+Copy
+Edit
+GEMINI_API_KEY=your_gemini_api_key_here
+⚠️ The .env file is gitignored for safety reasons.
 
-Upload a PDF containing text, tables, and/or images.
+▶️ Running the App
+bash
+Copy
+Edit
+streamlit run app.py
+The page opens with:
 
-Enter your Google Gemini API Key.
+bash
+Copy
+Edit
+Deepan's 🙂  Multimodal RAG Chatbot 🔍 🤖 
+📎 Kindly upload a PDF file containing text, tables, or images for context
+💡 Sample Workflow
+Upload a PDF.
 
-Ask any question about the document!
+See extracted text, table JSONs, and image captions in the sidebar.
 
-Retrieved context and generated answer will appear.
+Click "📚 Process Files" to embed them.
 
-Explore extracted content and visualized embeddings!
+Ask your question in the chat box.
 
-### 💚 Example Queries
+Get a contextually relevant answer generated via Gemini 1.5 Pro!
 
-"Summarize the financial performance shown in the tables."
+🧪 Example Use Cases
+Understanding complex academic PDFs (research papers, reports)
 
-"Describe the key findings mentioned in the third page images."
+Searching and answering from business reports with embedded tables and images
 
-"What is the value of sales in 2022?"
+Building domain-specific personal AI knowledgebases
 
-"Summarize the pipeline maintenance steps."
+🛠️ Troubleshooting
+Gemini API issues?
 
-### 🛠️ Requirements
+Check API key and usage limits at Google AI Studio.
 
-Python 3.9+
+FAISS errors?
 
-API access to Google Gemini (https://aistudio.google.com/)
+Prefer running in Linux or WSL for compatibility.
 
-### 👋 Contributions
+Streamlit not updating?
 
-Feel free to open issues or pull requests if you'd like to improve this project! ✨
+Try refreshing (Ctrl+R) or restart the app.
+
+🔮 Future Improvements
+LangChain integration for advanced retrieval pipelines
+
+Streamlined multi-file PDF upload support
+
+Highlight matched text/tables/images inside original document
+
+Streaming responses for better user experience
+
+Dark mode UI
+
+🙏 Acknowledgements
+OpenAI (CLIP Model)
+
+Google (Gemini Models)
+
+Streamlit Team
+
+Facebook Research (FAISS)
+
+PyMuPDF, pdfplumber Libraries
+
+📜 License
+Unlicensed
+
+🤝 Contributing
+Pull requests, ideas, and feature suggestions are most welcome!
+Just fork the repo, make your improvements, and raise a PR.
+
+👋 Author
+Deepan
+
+
+
 
 
