@@ -38,11 +38,15 @@ It combines **CLIP**, **Google Gemini**, and **FAISS** for powerful multimodal r
 
 2. **Install dependencies:**
 
+```bash
 pip install -r requirements.txt
+```
 
 3. **Run the app:**
 
+```bash
 streamlit run app.py
+```
 
 ### 🚀 Usage
 
@@ -71,16 +75,6 @@ Explore extracted content and visualized embeddings!
 Python 3.9+
 
 API access to Google Gemini (https://aistudio.google.com/)
-
-### ✨ Future Improvements
-
-Use a better model like Donut for tables/images without relying on LLM
-
-Add OCR fallback for scanned PDFs
-
-Integrate TSNE or PCA clustering for visual analytics
-
-Add history/saving of queries and answers
 
 ### 👋 Contributions
 
