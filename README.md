@@ -8,19 +8,25 @@ This app uses the power of Google Gemini 1.5 Pro, OpenAI CLIP embeddings, and FA
 ---
 
 ## 🚀 Features
-- 📄 Upload and process PDFs containing text, tables, and images
+- 📄 **Upload and process PDFs containing text, tables, and images** 
 
-- 📊 Extract tables as structured JSON using Gemini
+- 📊 **Extract tables as structured JSON using Gemini** 
 
-- 🖼️ Extract and caption images via Gemini multimodal reasoning
+- 🖼️ **Extract and caption images via Gemini multimodal reasoning** 
 
-- 🧠 Embed all content (text + captions + table summaries) using CLIP embeddings
+- 🧠 **Embed all content (text + captions + table summaries) using CLIP embeddings** 
 
-- 📚 FAISS vector store for fast semantic search
+- 📚 **FAISS vector store for fast semantic search** 
 
-- 💬 Interactive Streamlit chat interface with chat history memory
+- **💬 Interactive Streamlit chat interface with chat history memory** 
 
-- 🤖 Contextual responses generated using Gemini 1.5 Pro
+- **🤖 Contextual responses generated using Gemini 1.5 Pro** 
+
+- **Vector Database Visualization** 
+      - Plot and inspect all FAISS vector embeddings.
+      For each vector, you can view:
+      Dimension-wise magnitude plotted (X-axis: dimension index, Y-axis: magnitude).
+      Corresponding original chunk (text, image caption, or table JSON).
 
 ## 🧰 Tech Stack
 
