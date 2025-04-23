@@ -139,54 +139,37 @@ I have given the option for the user to manually enter their Gemini API key to t
 ```bash
 streamlit run app.py
 ```
-The page opens with:
-
-bash
-Copy
-Edit
-Deepan's 🙂  Multimodal RAG Chatbot 🔍 🤖 
-📎 Kindly upload a PDF file containing text, tables, or images for context
-💡 Sample Workflow
-Upload a PDF.
-
-See extracted text, table JSONs, and image captions in the sidebar.
-
-Click "📚 Process Files" to embed them.
-
-Ask your question in the chat box.
-
-Get a contextually relevant answer generated via Gemini 1.5 Pro!
 
 ## 🧪 Example Use Cases
-Understanding complex academic PDFs (research papers, reports)
+- Understanding complex academic PDFs (research papers, reports)
 
-Searching and answering from business reports with embedded tables and images
+- Searching and answering from business reports with embedded tables and images
 
-Building domain-specific personal AI knowledgebases
+- Building domain-specific personal AI knowledgebases
 
 ## 🛠️ Troubleshooting
-Gemini API issues?
+- Gemini API issues?
 
-Check API key and usage limits at Google AI Studio.
+- Check API key and usage limits at Google AI Studio.
 
-FAISS errors?
+- FAISS errors?
 
-Prefer running in Linux or WSL for compatibility.
+- Prefer running in Linux or WSL for compatibility.
 
-Streamlit not updating?
+- Streamlit not updating?
 
-Try refreshing (Ctrl+R) or restart the app.
+- Try refreshing (Ctrl+R) or restart the app.
 
 ## 🙏 Acknowledgements
-OpenAI (CLIP Model)
+- OpenAI (CLIP Model)
 
-Google (Gemini Models)
+- Google (Gemini Models)
 
-Streamlit Team
+- Streamlit Team
 
-Facebook Research (FAISS)
+- Facebook Research (FAISS)
 
-PyMuPDF, pdfplumber Libraries
+- PyMuPDF, pdfplumber Libraries
 
 ## 📜 License
 Unlicensed
