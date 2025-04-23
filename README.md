@@ -121,7 +121,7 @@ pip install -r requirements.txt
 ```
 ### 4. Run the Application
 ```bash
-streamlit run app.py
+streamlit run RAG_final.py  
 ```
 
 ### 🔐 Environment Variables
