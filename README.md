@@ -1,40 +1,44 @@
 # 📚 Multimodal RAG Chatbot 🔍 🤖 — Powered by Gemini 1.5 + CLIP
-Welcome to Deepan's Multimodal RAG Chatbot, a lightweight, efficient Retrieval-Augmented Generation (RAG) chatbot that supports PDF Text, Tables, and Images.
+Welcome to **Deepan's Multimodal RAG Chatbot**, a lightweight, efficient Retrieval-Augmented Generation (RAG) chatbot that supports complex PDF containing Text, Tables, and Images.
 This app uses the power of Google Gemini 1.5 Pro, OpenAI CLIP embeddings, and FAISS for multimodal document search and generation.
 
+🔗 Hosted on GitHub: [DeepK-art/Multimodel-RAG](https://github.com/DeepK-art/Multimodel-RAG.git)
 
-🔗 Hosted on GitHub: Deeps72-ux/multimodal-rag
+---
 
 ## 🚀 Features
-📄 Upload and process PDFs containing text, tables, and images
+- 📄 Upload and process PDFs containing text, tables, and images
 
-📊 Extract tables as structured JSON using Gemini
+- 📊 Extract tables as structured JSON using Gemini
 
-🖼️ Extract and caption images via Gemini multimodal reasoning
+- 🖼️ Extract and caption images via Gemini multimodal reasoning
 
-🧠 Embed all content (text + captions + table summaries) using CLIP embeddings
+- 🧠 Embed all content (text + captions + table summaries) using CLIP embeddings
 
-📚 FAISS vector store for fast semantic search
+- 📚 FAISS vector store for fast semantic search
 
-💬 Interactive Streamlit chat interface with chat history memory
+- 💬 Interactive Streamlit chat interface with chat history memory
 
-🤖 Contextual responses generated using Gemini 1.5 Pro
+- 🤖 Contextual responses generated using Gemini 1.5 Pro
 
 ## 🧰 Tech Stack
 
-Component	Library/Tool
-User Interface	Streamlit
-Text Extraction	pdfplumber
-Table Extraction	PyMuPDF (fitz) + Gemini
-Image Handling	PyMuPDF + Gemini
-Embeddings	OpenAI CLIP model (clip-vit-base-patch32)
-Vector database	FAISS
-LLM	Google Gemini API (1.5 Pro)
-API Secrets	dotenv (.env file for config)
-For text cleaning and chunking: nltk library was used.
+The following table outlines the components and corresponding libraries/tools used in the multimodal RAG pipeline:
+
+| Component              | Library/Tool                                    |
+|-----------------------|-------------------------------------------------|
+| User Interface        | Streamlit                                       |
+| Text Extraction       | pdfplumber                                      |
+| Table Extraction      | PyMuPDF (fitz) + Gemini                         |
+| Image Handling        | PyMuPDF + Gemini                                |
+| Embeddings            | OpenAI CLIP model (clip-vit-base-patch32)       |
+| Vector Database       | FAISS                                           |
+| LLM                   | Google Gemini API (1.5 Pro)                      |
+| API Secrets           | dotenv (.env file for config)                   |
+| Text Cleaning/Chunking | NLTK                                            |
 
 ## 📁 File Structure
-<pre> multimodal-rag/ ├── app.py # 🎯 Main Streamlit app to run the Multimodal RAG pipeline ├── requirements.txt # 📦 List of required Python packages ├── .env # 🔐 Environment file containing the Gemini API key (excluded from Git) ├── README.md # 📘 Project overview and usage instructions └── modules/ # 🏗️ Modular components used to build the multimodal RAG model ├── pdf_text_extractor.py ├── table_extractor.py ├── image_extractor.py ├── vector_db.py └── chatbot.py </pre>
+
 
 ## 🧪 How It Works
 1. **Document Upload**
