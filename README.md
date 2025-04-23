@@ -91,8 +91,8 @@ graph TD
 ## 📝 Setup Instructions
 ### 1. Clone the Repository
 ``` bash
-git clone https://github.com/Deeps72-ux/multimodal-rag.git
-cd multimodal-rag
+git clone https://github.com/DeepK-art/Multimodel-RAG.git
+cd Multimodel-RAG
 ```
 
 ### 2. Create and Activate a Virtual Environment (Optional)
