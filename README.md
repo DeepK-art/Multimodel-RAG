@@ -35,3 +35,55 @@ It combines **CLIP**, **Google Gemini**, and **FAISS** for powerful multimodal r
    ```bash
    git clone https://github.com/your-username/multimodal-pdf-rag.git
    cd multimodal-pdf-rag
+
+2. **Install dependencies:**
+
+pip install -r requirements.txt
+
+3. **Run the app:**
+
+streamlit run app.py
+
+### 🚀 Usage
+
+Upload a PDF containing text, tables, and/or images.
+
+Enter your Google Gemini API Key.
+
+Ask any question about the document!
+
+Retrieved context and generated answer will appear.
+
+Explore extracted content and visualized embeddings!
+
+### 💚 Example Queries
+
+"Summarize the financial performance shown in the tables."
+
+"Describe the key findings mentioned in the third page images."
+
+"What is the value of sales in 2022?"
+
+"Summarize the pipeline maintenance steps."
+
+### 🛠️ Requirements
+
+Python 3.9+
+
+API access to Google Gemini (https://aistudio.google.com/)
+
+### ✨ Future Improvements
+
+Use a better model like Donut for tables/images without relying on LLM
+
+Add OCR fallback for scanned PDFs
+
+Integrate TSNE or PCA clustering for visual analytics
+
+Add history/saving of queries and answers
+
+### 👋 Contributions
+
+Feel free to open issues or pull requests if you'd like to improve this project! ✨
+
+
