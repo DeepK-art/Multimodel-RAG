@@ -1,0 +1,30 @@
+# Basic libraries
+streamlit
+python-dotenv
+nltk
+
+# PDF handling
+pdfplumber
+PyMuPDF
+
+# Image processing
+Pillow
+
+# OCR (if needed for extensions later)
+pytesseract
+
+# Vector database
+faiss-cpu
+
+# Embeddings
+torch
+transformers
+sentence-transformers
+
+# Google Gemini API
+google-generativeai
+
+# Additional utilities
+tqdm
+numpy
+scikit-learn
