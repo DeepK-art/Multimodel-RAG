@@ -37,32 +37,74 @@ For text cleaning and chunking: nltk library was used.
 <pre> multimodal-rag/ ├── app.py # 🎯 Main Streamlit app to run the Multimodal RAG pipeline ├── requirements.txt # 📦 List of required Python packages ├── .env # 🔐 Environment file containing the Gemini API key (excluded from Git) ├── README.md # 📘 Project overview and usage instructions └── modules/ # 🏗️ Modular components used to build the multimodal RAG model ├── pdf_text_extractor.py ├── table_extractor.py ├── image_extractor.py ├── vector_db.py └── chatbot.py </pre>
 
 ## 🧪 How It Works
-Document Upload
-Upload .pdf documents containing text, tables, and images.
+1. **Document Upload**
+    Upload .pdf documents containing text, tables, and images.
 
-Multimodal Extraction
+2. **Multimodal Extraction**
 
-Text extracted via pdfplumber
+   - Text extracted via pdfplumber
 
-Tables extracted via PyMuPDF, then converted to JSON using Gemini
+   - Tables extracted via PyMuPDF, then converted to JSON using Gemini
 
-Images extracted and captioned via Gemini
+   - Images extracted and captioned via Gemini
 
-Embedding
-All extracted content is embedded using OpenAI CLIP to create a unified multimodal representation.
+3. **Embedding**
+     All extracted content is embedded using OpenAI CLIP to create a unified multimodal representation.
 
-FAISS Indexing
-Embeddings are indexed using faiss.IndexFlatL2 for fast retrieval.
+4. **FAISS Indexing**
+     Embeddings are indexed using faiss.IndexFlatL2 for fast retrieval.
 
-Retrieval and Generation
+5. **Retrieval and Generation**
 
-For each user query, the Top-3 relevant content chunks are retrieved from the FAISS DB.
+    For each user query, the Top-3 relevant content chunks are retrieved from the FAISS DB.
 
-The query + retrieved context are sent to Google Gemini 1.5 Pro.
+    The query + retrieved context are sent to Google Gemini 1.5 Pro.
 
-Gemini generates a coherent final answer based on the context.
+    Gemini generates a coherent final answer based on the context.
 
-<pre> ┌──────────────┐ │ PDF Content │ └──────┬───────┘ ↓ ┌────────────┬──────────────┬─────────────┐ │ Text Chunk │ Table JSON │ Image Captions │ └────────────┴──────────────┴─────────────┘ ↓ ┌───────────────┐ │ CLIP Encoder │ └──────┬────────┘ ↓ ┌──────────────┐ │ FAISS DB │◄───── User Query └─────┬────────┘ │ ↓ Top-k Matches │ ┌──────────────────────────┐ │ │ Prompt Generator │◄┘ │ (Gemini 1.5 Pro) │ └────────────┬──────────────┘ ↓ ✨ Final Answer ✨ </pre>
+
+
+<pre>
+  ┌──────────────────────────────┐ 
+  │          📄 Upload PDF       │ 
+  └────────────┬─────────────────┘ 
+               ↓ 
+  ┌────────────────────────────────────┐ 
+  │ 📚 Extract Content from PDF        │ │ - Text (pdfplumber + NLTK) │ │ - Images (fitz ➔ caption with Gemini Flash) │ │ - Tables (fitz ➔ image ➔ JSON with Gemini) │ └────────────┬─────────────────────────┘ 
+             ↓
+  ┌───────────────────────────────────────┐ 
+  │ 🔥 Prepare Chunks │ │ [TEXT], [IMAGE SUMMARY], [TABLE JSON] │ 
+  └────────────┬──────────────────────────┘ 
+               ↓
+  ┌───────────────────────────────────────┐ 
+  │ 🧠 Generate Embeddings │ │ (CLIP model for all chunks) │
+  └────────────┬──────────────────────────┘ 
+               ↓
+  ┌───────────────────────────────────────┐ 
+  │ 📦 Build FAISS Vector Index │ │ (store normalized chunk embeddings) │
+  └────────────┬──────────────────────────┘ 
+               ↓ 
+  ┌─────────────────────────────┐
+  │ 🙋‍♂️ User Inputs a Question   │ 
+  └────────────┬────────────────┘
+               ↓
+  ┌───────────────────────────────────────┐ 
+  │ 🔍 Semantic Search in FAISS │ │ (Retrieve Top-K relevant chunks) │ 
+  └────────────┬──────────────────────────┘
+               ↓ 
+  ┌───────────────────────────────────────┐ 
+  │ 📜 Build Limited Context │ │ (Fit inside token limit) │ 
+  └────────────┬──────────────────────────┘
+               ↓ 
+  ┌────────────────────────────────────────────────────────────┐ 
+  │ 🤖 Query Gemini-1.5-Pro │ │ (Answer using Context + Query) │ 
+  └────────────┬───────────────────────────────────────────────┘ 
+               ↓ 
+  ┌────────────────────────────────────────────────────────┐ 
+  │ ✨ Display Final Answer │ │ (With token usage stats)   │ 
+  └───────────────────────────────────────────────────────┘ 
+
+</pre>
 
 ## 📝 Setup Instructions
 ### 1. Clone the Repository
