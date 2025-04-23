@@ -1,11 +1,11 @@
-### 📚 Multimodal RAG Chatbot 🔍 🤖 — Powered by Gemini 1.5 + CLIP
+# 📚 Multimodal RAG Chatbot 🔍 🤖 — Powered by Gemini 1.5 + CLIP
 Welcome to Deepan's Multimodal RAG Chatbot, a lightweight, efficient Retrieval-Augmented Generation (RAG) chatbot that supports PDF Text, Tables, and Images.
 This app uses the power of Google Gemini 1.5 Pro, OpenAI CLIP embeddings, and FAISS for multimodal document search and generation.
 
 
 🔗 Hosted on GitHub: Deeps72-ux/multimodal-rag
 
-### 🚀 Features
+## 🚀 Features
 📄 Upload and process PDFs containing text, tables, and images
 
 📊 Extract tables as structured JSON using Gemini
@@ -20,7 +20,7 @@ This app uses the power of Google Gemini 1.5 Pro, OpenAI CLIP embeddings, and FA
 
 🤖 Contextual responses generated using Gemini 1.5 Pro
 
-### 🧰 Tech Stack
+## 🧰 Tech Stack
 
 Component	Library/Tool
 User Interface	Streamlit
@@ -33,9 +33,10 @@ LLM	Google Gemini API (1.5 Pro)
 API Secrets	dotenv (.env file for config)
 For text cleaning and chunking: nltk library was used.
 
-### 📁 File Structure
+## 📁 File Structure
 <pre> multimodal-rag/ ├── app.py # 🎯 Main Streamlit app to run the Multimodal RAG pipeline ├── requirements.txt # 📦 List of required Python packages ├── .env # 🔐 Environment file containing the Gemini API key (excluded from Git) ├── README.md # 📘 Project overview and usage instructions └── modules/ # 🏗️ Modular components used to build the multimodal RAG model ├── pdf_text_extractor.py ├── table_extractor.py ├── image_extractor.py ├── vector_db.py └── chatbot.py </pre>
-🧪 How It Works
+
+## 🧪 How It Works
 Document Upload
 Upload .pdf documents containing text, tables, and images.
 
@@ -62,43 +63,43 @@ The query + retrieved context are sent to Google Gemini 1.5 Pro.
 Gemini generates a coherent final answer based on the context.
 
 <pre> ┌──────────────┐ │ PDF Content │ └──────┬───────┘ ↓ ┌────────────┬──────────────┬─────────────┐ │ Text Chunk │ Table JSON │ Image Captions │ └────────────┴──────────────┴─────────────┘ ↓ ┌───────────────┐ │ CLIP Encoder │ └──────┬────────┘ ↓ ┌──────────────┐ │ FAISS DB │◄───── User Query └─────┬────────┘ │ ↓ Top-k Matches │ ┌──────────────────────────┐ │ │ Prompt Generator │◄┘ │ (Gemini 1.5 Pro) │ └────────────┬──────────────┘ ↓ ✨ Final Answer ✨ </pre>
-📝 Setup Instructions
-1. Clone the Repository
-bash
-Copy
-Edit
+
+## 📝 Setup Instructions
+### 1. Clone the Repository
+``` bash
 git clone https://github.com/Deeps72-ux/multimodal-rag.git
 cd multimodal-rag
-2. Create and Activate a Virtual Environment (Optional)
-bash
-Copy
-Edit
+```
+
+### 2. Create and Activate a Virtual Environment (Optional)
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-3. Install Requirements
-bash
-Copy
-Edit
+```
+### 3. Install Requirements
+```bash
 pip install -r requirements.txt
-4. Run the Application
-bash
-Copy
-Edit
+```
+### 4. Run the Application
+```bash
 streamlit run app.py
-🔐 Environment Variables
+```
+
+### 🔐 Environment Variables
 Create a .env file in the root of your project:
 
-bash
-Copy
-Edit
+```bash
+
 GEMINI_API_KEY=your_gemini_api_key_here
+```
 ⚠️ The .env file is gitignored for safety reasons.
 
-▶️ Running the App
-bash
-Copy
-Edit
+I have given the option for the user to manually enter their Gemini API key to the multimodel RAG 
+
+### ▶️ Running the App
+```bash
 streamlit run app.py
+```
 The page opens with:
 
 bash
@@ -117,14 +118,14 @@ Ask your question in the chat box.
 
 Get a contextually relevant answer generated via Gemini 1.5 Pro!
 
-🧪 Example Use Cases
+## 🧪 Example Use Cases
 Understanding complex academic PDFs (research papers, reports)
 
 Searching and answering from business reports with embedded tables and images
 
 Building domain-specific personal AI knowledgebases
 
-🛠️ Troubleshooting
+## 🛠️ Troubleshooting
 Gemini API issues?
 
 Check API key and usage limits at Google AI Studio.
@@ -137,18 +138,7 @@ Streamlit not updating?
 
 Try refreshing (Ctrl+R) or restart the app.
 
-🔮 Future Improvements
-LangChain integration for advanced retrieval pipelines
-
-Streamlined multi-file PDF upload support
-
-Highlight matched text/tables/images inside original document
-
-Streaming responses for better user experience
-
-Dark mode UI
-
-🙏 Acknowledgements
+## 🙏 Acknowledgements
 OpenAI (CLIP Model)
 
 Google (Gemini Models)
@@ -159,14 +149,14 @@ Facebook Research (FAISS)
 
 PyMuPDF, pdfplumber Libraries
 
-📜 License
+## 📜 License
 Unlicensed
 
-🤝 Contributing
+## 🤝 Contributing
 Pull requests, ideas, and feature suggestions are most welcome!
 Just fork the repo, make your improvements, and raise a PR.
 
-👋 Author
+## 👋 Author
 Deepan
 
 
