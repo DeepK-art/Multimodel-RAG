@@ -1,0 +1,29 @@
+Table Reasoning & Retrieval
+What was the Human Development Index (HDI) of Algeria in 2000 and how did it change by 2010?
+
+Which country among Afghanistan, Albania, and Andorra had the highest HDI in 1980?
+
+In Table 20, which expenditure category increased the most between 2009/10 and 2010/11?
+
+Compare the 'Agency services' expenditures in Table 20 and Table 21. Are the values the same or different?
+
+What are the 'Non-current assets' listed in the 2010 year-end financial statement, and which had the highest value?
+
+Across 2008–2010 in Table 28, which financial debt value was the highest?
+
+🔁 Temporal or Trend Analysis
+How did Bob’s task completions change from 2008 to 2009 in Table 23?
+
+Which course did Institution X offer consistently from 2006 to 2009 across all years?
+
+🔍 Multi-table & Ambiguity Testing
+Which continent had the highest "Highest average" value in 2008 in Table 29?
+
+Are the values in Table 24 and Table 28 identical for the year 2010? Justify.
+
+🧠 Reasoning / Footnote / Special Formatting
+What footnote explanations are given for Table 20, and what do they imply about the data quality or completeness?
+
+Which year shows a significant decrease in “Contingency” expenditure, and how might this affect budgeting decisions?
+
+Which name appears in both Table 23 and Table 25, and how do the values differ?
